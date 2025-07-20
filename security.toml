@@ -1,9 +1,18 @@
-[security]
-danger = [
-    "rm -rf /*",
-    "chmod * /*",
+[danger]
+commands = [
+    "rm -rf",
+    "chmod 777",
+    "dd if=",
+    "mkfs",
+    "> /dev/sd",
+    ":(){:|:&};:"
 ]
 
-warn = [
-    "sudo",
+[warn]
+commands = [
+    "rm ",
+    "mv ",
+    "> ",
+    "|",
+    "sudo"
 ]

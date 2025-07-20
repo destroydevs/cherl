@@ -1,0 +1,19 @@
+# the format of toml files can be changed in future
+
+[meta]
+name = "GitHub Project Initializer"
+author = "Evgeny K."
+description = "Commands to initialize new GitHub project"
+
+[commands]
+setup = [
+    "git init",
+    "git remote add origin {{ branch }} {{ remote-link }}",
+    "git add .",
+    "git commit -m 'Initial commit'",
+    "git push origin {{ branch }} --force",
+]
+
+[arguments]
+branch = { required = true, description = "The branch name" }
+remote = { required = true, description = "The repository remote link" }
