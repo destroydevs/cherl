@@ -9,6 +9,7 @@ description = "Commands to initialize new GitHub project"
 setup = [
     "git init",
     "git remote add origin {{ branch }} {{ remote-link }}",
+    "git fetch origin",
     "git add .",
     "git commit -m 'Initial commit'",
     "git push origin {{ branch }} --force",
