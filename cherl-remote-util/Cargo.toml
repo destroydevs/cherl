@@ -1,0 +1,6 @@
+[package]
+name = "cherl-remote-util"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

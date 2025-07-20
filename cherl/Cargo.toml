@@ -1,0 +1,7 @@
+[package]
+name = "cherl"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cherl-remote-util = {path = "../cherl-remote-util"}

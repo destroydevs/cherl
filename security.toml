@@ -1,0 +1,9 @@
+[security]
+danger = [
+    "rm -rf /*",
+    "chmod * /*",
+]
+
+warn = [
+    "sudo",
+]

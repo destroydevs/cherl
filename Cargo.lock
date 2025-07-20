@@ -5,3 +5,10 @@ version = 4
 [[package]]
 name = "cherl"
 version = "0.1.0"
+dependencies = [
+ "cherl-remote-util",
+]
+
+[[package]]
+name = "cherl-remote-util"
+version = "0.1.0"
