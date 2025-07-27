@@ -1,0 +1,7 @@
+[package]
+name = "cherl-util"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+indicatif = {workspace = true}

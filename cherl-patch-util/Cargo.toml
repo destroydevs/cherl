@@ -5,3 +5,4 @@ edition.workspace = true
 
 [dependencies]
 whoami = "1.6.0"
+cherl-util = { path = "../cherl-util"}

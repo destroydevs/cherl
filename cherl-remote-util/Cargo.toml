@@ -5,3 +5,6 @@ edition.workspace = true
 
 [dependencies]
 reqwest = "0.12.22"
+anyhow = { workspace = true }
+indicatif = {workspace = true}
+cherl-util = {path = "../cherl-util"}
