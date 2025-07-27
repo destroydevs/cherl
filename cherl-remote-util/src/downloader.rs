@@ -12,26 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub struct Remote {
-    repo_url: String,
-}
+use crate::remote::Remote;
 
-impl Remote {
-    pub fn new(repo_url: String) -> Self {
-        Remote { 
-            repo_url 
-        }
-    }
+pub struct Download;
 
-    pub fn get_repo_url(&self) -> &String {
-        &self.repo_url
-    }
-
-    pub fn download(&self, file: String) {
-        if file.ends_with(".toml") || file.ends_with(".json") {
-            
-            
-
-        }
+impl Download for Remote {
+    fn download(&self, file: String) {
+        let url = "";
+        let response = reqwest::get(url).unwrap();
+        let mut file = std::fs::File::create("cherl-remote-util.tar.gz").unwrap();
+        std::io::copy(&mut response, &mut file).unwrap();
     }
 }

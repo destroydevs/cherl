@@ -13,6 +13,7 @@
 // limitations under the License.
 
 mod remote;
+mod downloader;
 
 pub fn init() {
     // todo

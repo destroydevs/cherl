@@ -12,26 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub struct Remote {
-    repo_url: String,
+pub struct Patch {
+    os_name: String,
+    patch: String,
+    cherl_version: String,
 }
 
-impl Remote {
-    pub fn new(repo_url: String) -> Self {
-        Remote { 
-            repo_url 
-        }
-    }
-
-    pub fn get_repo_url(&self) -> &String {
-        &self.repo_url
-    }
-
-    pub fn download(&self, file: String) {
-        if file.ends_with(".toml") || file.ends_with(".json") {
-            
-            
-
-        }
+impl Patch {
+    pub fn new(os_name: String, patch: String) -> Self {
+        // todo
     }
 }

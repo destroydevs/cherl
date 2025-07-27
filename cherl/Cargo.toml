@@ -5,3 +5,5 @@ edition = "2024"
 
 [dependencies]
 cherl-remote-util = {path = "../cherl-remote-util"}
+cherl-patch-util = {path = "../cherl-patch-util"}
+cherl-script-util = {path = "../cherl-script-util"}

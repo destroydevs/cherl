@@ -1,8 +1,8 @@
 [workspace]
 members = [
-    "cherl",
+    "cherl", "cherl-patch-util",
     "cherl-remote-util"
-]
+, "cherl-script-util"]
 
 [workspace.package]
 version = "0.1.0"
