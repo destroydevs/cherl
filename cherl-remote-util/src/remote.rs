@@ -13,55 +13,34 @@
 // limitations under the License.
 
 use anyhow::Error;
+use cherl_util::regex_util::RegexUtil;
 use reqwest::Response;
 
 pub struct Remote {
     repo_url: String,
+    regex_util: RegexUtil,
 }
 
 impl Remote {
     pub fn new(repo_url: String) -> Self {
-        Remote { repo_url }
+        Remote { repo_url, regex_util: RegexUtil::new() }
     }
 
     pub fn get_repo_url(&self) -> &String {
         &self.repo_url
     }
 
-    // https://github.com/destroydevs/cherl
-    pub fn get_repo_info(&self) -> Option<RepoInfo> {
-        let url = self.get_repo_url().clone().replace("https://", "");
-
-        let split = url.split("/").collect::<Vec<&str>>();
-
-        if split.len() >= 3 {
-            let owner = *split.get(1).unwrap();
-            let name = *split.get(2).unwrap();
-
-            return Some(RepoInfo {
-                owner: owner.to_string(),
-                name: name.to_string(),
-            });
-        }
-        None
-    }
-
-    // https://raw.githubusercontent.com/destroydevs/cherl/refs/heads/master/templates/git-init.toml
+    // getting file content from repo
     pub async fn get_from_template(&self, file: String) -> Result<Response, anyhow::Error> {
-        let mut url = String::from("https://raw.githubusercontent.com/");
+        let repo_info = self.regex_util.get_raw_url(self.get_repo_url());
 
-        let repo_info = self.get_repo_info();
+        let mut url = String::new();
 
-        if let Some(repo_info) = repo_info {
-            url.push_str(repo_info.owner.as_str());
-
-            url.push('/');
-
-            url.push_str(repo_info.name.as_str());
-            url.push_str("/refs/heads/master/templates/");
+        if let Some(_) = repo_info {
             url.push_str(file.as_str());
         } else {
             Err(Error::msg("repo info not found"))?
+            // TODO: handle error
         }
 
         let response = reqwest::get(url).await?;
@@ -73,7 +52,11 @@ impl Remote {
         file.ends_with(".toml") || file.ends_with(".lua") || file.ends_with(".json")
     }
 
-    pub async fn get_templates(&self) -> Option<Vec<String>> {
+    // TODO: check file with mime in repo, if contains return it
+    // 1) .lua
+    // 2) .json
+    // 3) .toml
+    pub async fn get_templates(&self, file: String) -> Option<Vec<String>> {
         let templates: Vec<String> = Vec::new();
 
         let mut repo = self.get_repo_url().clone();
@@ -86,9 +69,4 @@ impl Remote {
 
         templates.is_empty().then(|| templates)
     }
-}
-
-pub struct RepoInfo {
-    pub owner: String,
-    pub name: String,
 }

@@ -22,6 +22,8 @@ pub trait Download {
 }
 
 impl Download for Remote {
+
+    // TODO: make the progress bar better
     async fn download(&self, file: String) -> Result<(), Error> {
         let bar = ProgressBar::new(6);
 

@@ -5,3 +5,5 @@ edition.workspace = true
 
 [dependencies]
 indicatif = {workspace = true}
+log = "0.4.27"
+regex = "1.11.1"
