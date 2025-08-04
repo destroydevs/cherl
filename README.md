@@ -8,4 +8,6 @@ Perfect for devops routines, project setups, and cross-platform automation.
 Project is still in development. \
 Wait for beta-release. 
 
+**Have suggestions? Open an [issue](https://github.com/destroydevs/cherl/issues)!**
+
 > Project architecture and structure are still in development. Current implementation is subject to change.
