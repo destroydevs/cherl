@@ -1,0 +1,6 @@
+{
+    "repos": {
+        "git-init": "https://github.com/destroydevs/cherl/templates/git-init.toml",
+        "server-setup": "https://github.com/destroydevs/cherl/templates/server-setup.toml"
+    }
+}

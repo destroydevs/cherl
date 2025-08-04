@@ -36,7 +36,8 @@ impl Remote {
 
         let mut url = String::new();
 
-        if let Some(_) = repo_info {
+        if let Some(raw_url) = repo_info {
+            url.push_str(&raw_url);
             url.push_str(file.as_str());
         } else {
             Err(Error::msg("repo info not found"))?
